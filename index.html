@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>M P Pavan Kumar — Portfolio</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--accent:#7F77DD;--accent2:#5DCAA5;--bg:#0d0d0f;--bg2:#141416;--bg3:#1c1c1f;--text:#f0eff8;--muted:#888780;--border:#2a2a2e}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.7}
+  a{color:inherit;text-decoration:none}
+  nav{position:sticky;top:0;z-index:100;background:rgba(13,13,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:-0.5px;color:var(--accent)}
+  .nav-links{display:flex;gap:1.5rem}
+  .nav-links a{font-size:0.875rem;color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  section{padding:5rem 2rem;max-width:900px;margin:0 auto}
+  #hero{padding-top:7rem;padding-bottom:7rem}
+  .hero-tag{display:inline-block;background:#1c1c2e;border:1px solid #534AB7;color:#AFA9EC;font-size:0.78rem;letter-spacing:1px;text-transform:uppercase;padding:4px 14px;border-radius:999px;margin-bottom:1.5rem}
+  .hero-name{font-size:clamp(2.8rem,8vw,5rem);font-weight:800;letter-spacing:-2px;line-height:1.05;margin-bottom:1rem}
+  .hero-name span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .hero-sub{font-size:1.15rem;color:var(--muted);max-width:520px;margin-bottom:2.5rem}
+  .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+  .btn{padding:0.65rem 1.5rem;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;transition:all .2s;display:inline-block}
+  .btn-primary{background:var(--accent);color:#fff;border:none}
+  .btn-primary:hover{background:#9490e8;transform:translateY(-1px)}
+  .btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+  .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+  .hero-scroll{margin-top:4rem;display:flex;align-items:center;gap:0.75rem;color:var(--muted);font-size:0.85rem}
+  .scroll-line{width:40px;height:1px;background:var(--muted)}
+  .sec-label{font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
+  .sec-title{font-size:2rem;font-weight:700;letter-spacing:-0.5px;margin-bottom:2.5rem}
+  .about-grid{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:start}
+  .avatar{width:120px;height:120px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;color:#fff;flex-shrink:0}
+  .about-text p{color:#c0bfd8;font-size:1rem;margin-bottom:1rem}
+  .about-chips{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1rem}
+  .chip{background:var(--bg3);border:1px solid var(--border);padding:4px 14px;border-radius:999px;font-size:0.8rem;color:var(--muted)}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+  .skill-group{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
+  .skill-group h3{font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2);margin-bottom:1rem}
+  .skill-bar{margin-bottom:0.9rem}
+  .skill-bar:last-child{margin-bottom:0}
+  .skill-top{font-size:0.85rem;color:#c0bfd8;margin-bottom:5px}
+  .projects-grid{display:grid;gap:1.25rem}
+  .proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:border-color .2s,transform .2s;display:grid;grid-template-columns:1fr auto;gap:1rem}
+  .proj-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .proj-title{font-size:1.1rem;font-weight:700;margin-bottom:0.25rem}
+  .proj-subtitle{font-size:0.8rem;color:var(--accent2);margin-bottom:0.6rem;letter-spacing:0.5px}
+  .proj-desc{font-size:0.9rem;color:var(--muted);margin-bottom:1rem;line-height:1.6}
+  .proj-tags{display:flex;gap:0.4rem;flex-wrap:wrap}
+  .tag{background:#1c1c2e;border:1px solid #3C3489;color:#AFA9EC;font-size:0.75rem;padding:2px 10px;border-radius:999px}
+  .proj-links{display:flex;flex-direction:column;gap:0.5rem;align-items:flex-end}
+  .icon-link{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.85rem;transition:all .2s}
+  .icon-link:hover{border-color:var(--accent2);color:var(--accent2)}
+  .edu-list{display:grid;gap:1rem}
+  .edu-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem}
+  .edu-name{font-size:0.95rem;font-weight:600}
+  .edu-sub{font-size:0.85rem;color:var(--muted);margin-top:2px}
+  .edu-score{font-size:0.85rem;font-weight:600;color:var(--accent2);white-space:nowrap}
+  .leadership-list{display:grid;gap:0.75rem}
+  .lead-item{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;font-size:0.9rem;color:#c0bfd8;display:flex;align-items:flex-start;gap:0.75rem}
+  .lead-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px}
+  .contact-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:2.5rem;text-align:center}
+  .contact-card p{color:var(--muted);margin-bottom:2rem;font-size:1rem}
+  .contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+  .contact-link{display:flex;align-items:center;gap:0.5rem;background:var(--bg3);border:1px solid var(--border);padding:0.6rem 1.25rem;border-radius:8px;font-size:0.9rem;color:var(--text);transition:all .2s}
+  .contact-link:hover{border-color:var(--accent);color:var(--accent)}
+  footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border)}
+  @media(max-width:600px){.about-grid{grid-template-columns:1fr}.proj-card{grid-template-columns:1fr}.proj-links{flex-direction:row}.edu-card{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">MPP.</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-tag">Open to opportunities</div>
+  <h1 class="hero-name">M P Pavan Kumar<br><span>Software Developer.</span></h1>
+  <p class="hero-sub">Information Science student at MSRIT · Building AI-powered apps & APIs with Python, FastAPI, and React. Based in Bengaluru 🇮🇳</p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn btn-primary">View my work</a>
+    <a href="#contact" class="btn btn-outline">Get in touch</a>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll to explore</div>
+</section>
+
+<section id="about">
+  <div class="sec-label">About me</div>
+  <h2 class="sec-title">M P Pavan Kumar</h2>
+  <div class="about-grid">
+    <div class="avatar"><img src="images/pavan.jpeg" width="150px" height="200px" alt="Chandan S T"></div>
+    <div class="about-text">
+      <p>I'm an Information Science undergraduate at M S Ramaiah Institute of Technology passionate about Full Stack Development, Artificial Intelligence, and Software Engineering. I specialize in developing scalable web applications and AI-driven solutions using React.js, Node.js, Java, Python, and MongoDB, with a focus on solving real-world problems through technology.</p>
+      <p>Beyond code, I lead extracurricular initiatives at MSRIT — currently serving as Member of DECA and Fest management Head of Udbhav'26, our annual intra-college fest.</p>
+      <div class="about-chips">
+        <span class="chip">AI / ML</span>
+        <span class="chip">Full Stack</span>
+        <span class="chip">Open Source</span>
+        <span class="chip">Leadership</span>
+        <span class="chip">Problem Solver</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-label">What I know</div>
+  <h2 class="sec-title">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>Languages & AI</h3>
+      <div class="skill-bar"><div class="skill-top">Python</div></div>
+      <div class="skill-bar"><div class="skill-top">c/c++</div></div>
+      <div class="skill-bar"><div class="skill-top">Computer Vision</div></div>
+      <div class="skill-bar"><div class="skill-top">TensorFlow / Keras</div></div>
+      <div class="skill-bar"><div class="skill-top">Scikit-learn / NLP</div></div>
+    </div>
+    <div class="skill-group">
+      <h3>Web Development</h3>
+      <div class="skill-bar"><div class="skill-top">FastAPI</div></div>
+      <div class="skill-bar"><div class="skill-top">React</div></div>
+      <div class="skill-bar"><div class="skill-top">HTML / CSS</div></div>
+    </div>
+    <div class="skill-group">
+      <h3>Cloud & DevOps</h3>
+      <div class="skill-bar"><div class="skill-top">Git / GitHub</div></div>
+      <div class="skill-bar"><div class="skill-top">Docker</div></div>
+      <div class="skill-bar"><div class="skill-top">AWS</div></div>
+      <div class="skill-bar"><div class="skill-top">Kubernetes</div></div>
+    </div>
+    <div class="skill-group">
+      <h3>Databases</h3>
+      <div class="skill-bar"><div class="skill-top">MongoDB</div></div>
+      <div class="skill-bar"><div class="skill-top">MySQL</div></div>
+      <div class="skill-bar"><div class="skill-top">Neo4j</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sec-label">What I've built</div>
+  <h2 class="sec-title">Projects</h2>
+  <div class="projects-grid">
+
+    <div class="proj-card">
+      <div>
+        <div class="proj-title">Dragon Fruit AI Detection</div>
+        <div class="proj-subtitle">DeepVision</div>
+        <div class="proj-desc">An AI-powered fruit quality analysis system that classifies dragon fruits by freshness using CNN-based image classification. Includes a real-time web interface for image upload and prediction, supporting smart agriculture use cases.</div>
+        <div class="proj-tags">
+          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">CNN</span><span class="tag">FastAPI</span><span class="tag">Computer Vision</span>
+        </div>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/MPPavanKumar/fruit-ripeness" class="icon-link" title="GitHub">GH</a>
+        <a href=" https://dragon-fruit-ai-2.onrender.com/" class="icon-link" title="Live demo">↗</a>
+      </div>
+    </div>
+    <div class="proj-card">
+  <div>
+    <div class="proj-title">Post Surgery Monitoring system</div>
+    <div class="proj-subtitle">AI and Ml-Powered Risk Detection</div>
+    <div class="proj-desc">
+   An AI-powered post-surgery monitoring platform that leverages computer vision and deep learning to analyze uploaded surgical wound images, assess complication risks, monitor healing progress, and provide early clinical decision support.
+    </div>
+    <div class="proj-tags">
+      <span class="tag">React.js</span>
+      <span class="tag">FastAPI</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">Llama 3</span>
+      <span class="tag">FAISS</span>
+      <span class="tag">Docker</span>
+    </div>
+  </div>
+  <div class="proj-links">
+    <a href="https://github.com/MPPavanKumar/AI-Engine-Postoperative-Monitoring-System" class="icon-link" title="GitHub">GH</a>
+  </div>
+
+</section>
+
+<section id="education">
+  <div class="sec-label">My background</div>
+  <h2 class="sec-title">Education</h2>
+  <div class="edu-list">
+    <div class="edu-card">
+      <div>
+        <div class="edu-name">B.E. Information Science & Engineering</div>
+        <div class="edu-sub">M S Ramaiah Institute of Technology · 2023 – 2027</div>
+      </div>
+      <div class="edu-score">CGPA 7.75</div>
+    </div>
+    <div class="edu-card">
+      <div>
+        <div class="edu-name">Class 12 — Karnataka Board (KSEAB)</div>
+        <div class="edu-sub">2022</div>
+      </div>
+      <div class="edu-score">95.0%</div>
+    </div>
+    <div class="edu-card">
+      <div>
+        <div class="edu-name">Class 10 — Karnataka Board (KSEEB)</div>
+        <div class="edu-sub">2021</div>
+      </div>
+      <div class="edu-score">89.6%</div>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem">
+    <div class="sec-label">Leadership</div>
+    <h2 class="sec-title" style="margin-top:0.5rem;font-size:1.5rem">Positions of responsibility</h2>
+    <div class="leadership-list">
+      <div class="lead-item"><div class="lead-dot"></div>Member of Department of Extra-Curricular Activities (DECA), MSRIT</div>
+      <div class="lead-item"><div class="lead-dot"></div>Fest Management Head — Udbhav'26, annual inter-college fest</div>
+      <div class="lead-item"><div class="lead-dot"></div>Core committee member for all major fests under DECA</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="sec-label">Say hello</div>
+  <h2 class="sec-title">Get in touch</h2>
+  <div class="contact-card">
+    <p>I'm actively looking for entry-level software development roles and internships. Feel free to reach out — I'd love to connect!</p>
+    <div class="contact-links">
+      <a href="mailto:pavankumarmp0@gmail.com" class="contact-link">✉ pavankumarmp0@gmail.com</a>
+      <a href="tel:+919353335088" class="contact-link">📞 +91 93533 35088</a>
+      <a href="https://github.com/MPPavanKumar" class="contact-link">⌥ GitHub</a>
+      
+    </div>
+  </div>
+</section>
+
+<footer>Designed & built by M P Pavan Kumar · 2026</footer>
+
+</body>
+</html>
